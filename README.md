@@ -32,22 +32,19 @@ You can search by keywords, filter by subjects, save your favorite papers, and b
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/college-paper-explorer.git
+git clone https://github.com/abdussamadse/research-mate.git
 cd college-paper-explorer
 Install dependencies:
 
 bash
-Copy code
 npm install
 Start the app:
 
 bash
-Copy code
 npm run dev
 Open in your browser:
 
 arduino
-Copy code
 http://localhost:5173
 📝 How to Use
 Search: Type keywords like Deep Learning or Quantum Computing.
