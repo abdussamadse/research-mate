@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { Star } from "lucide-react"; // star icon from lucide-react
+import { Star } from "lucide-react";
 
 export default function PaperCard({ paper }) {
   const [isFav, setIsFav] = useState(false);
 
-  // check if already in favorites
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("favorites") || "[]");
     setIsFav(saved.some((p) => p.id === paper.id));
@@ -12,14 +11,11 @@ export default function PaperCard({ paper }) {
 
   function toggleFavorite() {
     let saved = JSON.parse(localStorage.getItem("favorites") || "[]");
-
     if (isFav) {
-      // remove from favorites
       saved = saved.filter((p) => p.id !== paper.id);
       localStorage.setItem("favorites", JSON.stringify(saved));
       setIsFav(false);
     } else {
-      // add to favorites
       saved.push(paper);
       localStorage.setItem("favorites", JSON.stringify(saved));
       setIsFav(true);
@@ -29,7 +25,9 @@ export default function PaperCard({ paper }) {
   return (
     <div className="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md border hover:shadow-lg transition">
       <div className="flex justify-between items-start">
-        <h2 className="font-bold text-lg mb-2 pr-2">{paper.title}</h2>
+        <h2 className="font-bold text-lg mb-2 pr-2 text-gray-900 dark:text-white">
+          {paper.title}
+        </h2>
         <button onClick={toggleFavorite}>
           <Star
             className={`w-6 h-6 ${
@@ -43,12 +41,12 @@ export default function PaperCard({ paper }) {
         {paper.summary}
       </p>
 
-      <p className="text-xs text-gray-500 mb-2">
+      <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
         <span className="font-semibold">Authors:</span>{" "}
         {paper.authors.join(", ")}
       </p>
 
-      <p className="text-xs text-gray-500 mb-2">
+      <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
         <span className="font-semibold">Published:</span>{" "}
         {new Date(paper.published).toLocaleDateString()}
       </p>
