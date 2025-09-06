@@ -27,28 +27,6 @@ You can search by keywords, filter by subjects, save your favorite papers, and b
 
 ---
 
-## 📂 Folder Structure
-
-src/
-├─ components/
-│ ├─ PaperCard.jsx # Single paper card
-│ ├─ PaperList.jsx # List of papers
-│ └─ SearchBar.jsx # Search input + category dropdown
-├─ hooks/
-│ └─ useArxivAPI.js # Custom hook to fetch papers
-├─ pages/
-│ ├─ Home.jsx # Main page with search & results
-│ └─ Favorites.jsx # Page to view saved papers
-├─ utils/
-│ └─ parseArxiv.js # XML parser for arXiv API
-├─ App.jsx
-└─ index.js
-
-yaml
-Copy code
-
----
-
 ## 🚀 How to Run
 
 1. Clone the repository:
