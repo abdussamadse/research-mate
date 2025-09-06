@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { ChevronsDown } from "lucide-react"; // Lucide icon
 
-// Category list
 const categories = [
   { label: "All Fields", value: "" },
   { label: "Artificial Intelligence", value: "cs.AI" },
@@ -27,7 +27,9 @@ const categories = [
 
 export default function SearchBar({ onSearch }) {
   const [term, setTerm] = useState("");
-  const [category, setCategory] = useState(""); // All Fields default
+  const [category, setCategory] = useState("");
+  const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   function handleSearch() {
     onSearch(term, category);
@@ -35,9 +37,22 @@ export default function SearchBar({ onSearch }) {
 
   function handleClear() {
     setTerm("");
-    setCategory(""); // reset to All Fields
+    setCategory("");
     onSearch("", "");
   }
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col md:flex-row gap-2 p-4 items-center justify-center">
@@ -46,31 +61,46 @@ export default function SearchBar({ onSearch }) {
         value={term}
         onChange={(e) => setTerm(e.target.value)}
         placeholder="e.g. Deep Learning, Quantum Computing, Reinforcement Learning"
-        className="flex-1 border p-2 rounded-lg w-full md:w-1/2 bg-white text-gray-900"
+        className="flex-1 border p-2 rounded-lg w-full md:w-1/2 bg-white text-gray-900 outline-none"
       />
 
-      <select
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-        className="border p-2 rounded-lg w-full md:w-1/4 bg-white text-gray-900"
-      >
-        {categories.map((c) => (
-          <option key={c.value || "all"} value={c.value}>
-            {c.label}
-          </option>
-        ))}
-      </select>
+      {/* Custom Dropdown */}
+      <div className="relative w-full md:w-1/4" ref={dropdownRef}>
+        <button
+          onClick={() => setOpen(!open)}
+          className="w-full border p-2 rounded-lg flex justify-between items-center bg-white text-gray-900"
+        >
+          {categories.find((c) => c.value === category)?.label || "All Fields"}
+          <ChevronsDown className="ml-2 h-4 w-4 cursor-pointer" />
+        </button>
+        {open && (
+          <ul className="absolute z-10 mt-1 w-full bg-white border rounded-lg max-h-120 overflow-auto shadow-lg">
+            {categories.map((c) => (
+              <li
+                key={c.value || "all"}
+                onClick={() => {
+                  setCategory(c.value);
+                  setOpen(false);
+                }}
+                className="p-2 cursor-pointer hover:bg-blue-100"
+              >
+                {c.label}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
 
       <div className="flex gap-2">
         <button
           onClick={handleSearch}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer"
         >
           Search
         </button>
         <button
           onClick={handleClear}
-          className="px-4 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500"
+          className="px-4 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 cursor-pointer"
         >
           Clear
         </button>
