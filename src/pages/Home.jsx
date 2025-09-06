@@ -2,6 +2,7 @@ import { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import PaperList from "../components/PaperList";
 import useArxivAPI from "../hooks/useArxivAPI";
+import PaperCardSkeleton from "../components/PaperCardSkeleton";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -26,7 +27,11 @@ export default function Home() {
       <SearchBar onSearch={handleSearch} />
 
       {loading ? (
-        <p className="p-4">Loading...</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <PaperCardSkeleton key={i} />
+          ))}
+        </div>
       ) : (
         <>
           <PaperList papers={papers} />

@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import PaperDetailsSkeleton from "../components/PaperDetailsSkeleton";
 
 export default function PaperDetails({ favorites, onFavoriteToggle }) {
   const { paperId } = useParams();
@@ -35,7 +36,7 @@ export default function PaperDetails({ favorites, onFavoriteToggle }) {
     }
   }, [paperId, favorites]);
 
-  if (!paper) return <p className="p-4">Loading...</p>;
+  if (!paper) return <PaperDetailsSkeleton />;
 
   return (
     <div className="max-w-4xl mx-auto p-4">
