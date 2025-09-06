@@ -1,12 +1,64 @@
-# React + Vite
+# 📚 College Paper Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**College Paper Explorer** is a web app designed for college students to explore research papers from [arXiv.org](https://arxiv.org).
+You can search by keywords, filter by subjects, save your favorite papers, and browse the latest research across all fields.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Features
 
-## Expanding the ESLint configuration
+- **Keyword & Subject Search**: Find papers using keywords or by specific categories/subjects.
+- **All Fields Default**: First visit defaults to a comprehensive search across all fields.
+- **Favorites System**: Save and revisit your favorite papers using `localStorage`.
+- **Pagination**: Navigate results easily with numbered pages and Next/Previous buttons.
+- **Search Guidance**: Placeholder text in the search input to help you get started.
+- **Dark Mode Support**: Automatically adapts to your system’s dark mode.
+- **Responsive Design**: Fully responsive layout built with **TailwindCSS**.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Technologies Used
+
+- **React** – Frontend library for building UI components
+- **TailwindCSS** – Utility-first CSS framework for styling
+- **arXiv API** – Fetch research papers programmatically
+- **localStorage** – Store favorite papers locally in your browser
+- **lucide-react** – Icon library for clean, scalable icons
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/abdussamadse/research-mate.git
+cd research-mate
+2. Install Dependencies
+bash
+
+npm install
+3. Start the App
+bash
+
+npm run dev
+4. Open in Browser
+Visit http://localhost:5173 to see the app in action.
+
+📝 How to Use
+Search: Enter keywords like Deep Learning or Quantum Computing.
+
+Category: Choose a subject (e.g., AI, Robotics, Physics) or leave “All Fields” for a broader search.
+
+Favorites: Click the star on a paper card to save it. Access saved papers via the Favorites page.
+
+Pagination: Navigate through results using numbered pages or Next/Previous buttons.
+
+Dark Mode: Automatically enabled if your system is in dark mode.
+
+💡 Example Searches
+Deep Learning
+
+Quantum Computing
+
+Reinforcement Learning
+
