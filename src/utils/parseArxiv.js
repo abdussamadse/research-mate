@@ -13,6 +13,12 @@ export function parseArxiv(xmlString) {
       ? paper.link.find((l) => l["@_title"] === "pdf")?.["@_href"]
       : null;
 
+    const categories = Array.isArray(paper.category)
+      ? paper.category.map((c) => c["@_term"])
+      : paper.category
+      ? [paper.category["@_term"]]
+      : [];
+
     return {
       id: paper.id,
       title: paper.title,
@@ -22,6 +28,7 @@ export function parseArxiv(xmlString) {
         : [paper.author?.name],
       published: paper.published,
       pdfLink,
+      categories,
     };
   });
 }
