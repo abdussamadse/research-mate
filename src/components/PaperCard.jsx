@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function PaperCard({ paper }) {
   const [isFav, setIsFav] = useState(false);
+
+  // Extract arXiv ID from full URL
+  const paperId = paper.id.split("/abs/")[1];
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("favorites") || "[]");
@@ -23,7 +27,11 @@ export default function PaperCard({ paper }) {
   }
 
   return (
-    <div className="p-4 bg-white rounded-xl shadow-md border hover:shadow-lg transition">
+    <div
+      className="p-4 bg-white rounded-xl border border-gray-300 shadow-md
+                  hover:border-blue-400 hover:shadow-xl
+                  transform transition-all duration-300 hover:-translate-y-1 hover:scale-102"
+    >
       <div className="flex justify-between items-start">
         <h2 className="font-bold text-lg mb-2 pr-2 text-gray-900">
           {paper.title}
@@ -62,16 +70,25 @@ export default function PaperCard({ paper }) {
         </div>
       )}
 
-      {paper.pdfLink && (
-        <a
-          href={paper.pdfLink}
-          target="_blank"
-          rel="noreferrer"
-          className="text-blue-600 font-semibold hover:underline"
+      <div className="flex justify-between items-center mt-4">
+        {paper.pdfLink && (
+          <a
+            href={paper.pdfLink}
+            target="_blank"
+            rel="noreferrer"
+            className="text-blue-600 font-semibold hover:underline"
+          >
+            📄 Read PDF
+          </a>
+        )}
+        {/* Link to Details Page */}
+        <Link
+          to={`/paper/${paperId}`}
+          className="text-blue-600 hover:underline text-sm"
         >
-          📄 Read PDF
-        </a>
-      )}
+          View Details
+        </Link>
+      </div>
     </div>
   );
 }

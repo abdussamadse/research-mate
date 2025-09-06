@@ -20,6 +20,8 @@ export default function Favorites() {
     return <p className="p-4">No favorites yet.</p>;
   }
 
+  console.log(favorites);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 max-w-7xl mx-auto">
       {favorites.map((p) => (

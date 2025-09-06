@@ -21,7 +21,7 @@ export default function Navbar() {
             Favorites
           </Link>
           <Link to="/documentation" className="hover:underline">
-            Doc
+            Documentation
           </Link>
         </div>
 
@@ -88,7 +88,7 @@ export default function Navbar() {
             className="block py-2 hover:underline"
             onClick={() => setIsOpen(false)}
           >
-            Doc
+            Documentation
           </Link>
         </div>
       )}
