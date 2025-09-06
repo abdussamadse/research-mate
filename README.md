@@ -29,4 +29,4 @@ You can search by keywords, filter by subjects, save your favorite papers, and b
 
 ## 🚀 Getting Started
 
-### Live URL: https://github.com/abdussamadse/research-mate.git
+### Live URL: https://students-research-mate.vercel.app
