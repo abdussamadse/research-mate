@@ -46,20 +46,16 @@ export default function SearchBar({ onSearch }) {
         value={term}
         onChange={(e) => setTerm(e.target.value)}
         placeholder="e.g. Deep Learning, Quantum Computing, Reinforcement Learning"
-        className="flex-1 border p-2 rounded-lg w-full md:w-1/2 bg-white text-gray-900 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+        className="flex-1 border p-2 rounded-lg w-full md:w-1/2 bg-white text-gray-900"
       />
 
       <select
         value={category}
         onChange={(e) => setCategory(e.target.value)}
-        className="border p-2 rounded-lg w-full md:w-1/4 bg-white text-gray-900 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+        className="border p-2 rounded-lg w-full md:w-1/4 bg-white text-gray-900"
       >
         {categories.map((c) => (
-          <option
-            key={c.value || "all"}
-            value={c.value}
-            className="dark:bg-gray-700 dark:text-white"
-          >
+          <option key={c.value || "all"} value={c.value}>
             {c.label}
           </option>
         ))}

@@ -23,9 +23,9 @@ export default function PaperCard({ paper }) {
   }
 
   return (
-    <div className="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md border hover:shadow-lg transition">
+    <div className="p-4 bg-white rounded-xl shadow-md border hover:shadow-lg transition">
       <div className="flex justify-between items-start">
-        <h2 className="font-bold text-lg mb-2 pr-2 text-gray-900 dark:text-white">
+        <h2 className="font-bold text-lg mb-2 pr-2 text-gray-900">
           {paper.title}
         </h2>
         <button onClick={toggleFavorite}>
@@ -37,16 +37,14 @@ export default function PaperCard({ paper }) {
         </button>
       </div>
 
-      <p className="text-gray-600 dark:text-gray-300 text-sm mb-2 line-clamp-3">
-        {paper.summary}
-      </p>
+      <p className="text-gray-600 text-sm mb-2 line-clamp-3">{paper.summary}</p>
 
-      <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+      <p className="text-xs text-gray-500 mb-2">
         <span className="font-semibold">Authors:</span>{" "}
         {paper.authors.join(", ")}
       </p>
 
-      <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+      <p className="text-xs text-gray-500 mb-2">
         <span className="font-semibold">Published:</span>{" "}
         {new Date(paper.published).toLocaleDateString()}
       </p>
@@ -56,7 +54,7 @@ export default function PaperCard({ paper }) {
           {paper.categories.map((cat, idx) => (
             <span
               key={idx}
-              className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-1 rounded-md"
+              className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-md"
             >
               {cat}
             </span>
@@ -69,7 +67,7 @@ export default function PaperCard({ paper }) {
           href={paper.pdfLink}
           target="_blank"
           rel="noreferrer"
-          className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+          className="text-blue-600 font-semibold hover:underline"
         >
           📄 Read PDF
         </a>
