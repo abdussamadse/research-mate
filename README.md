@@ -29,38 +29,4 @@ You can search by keywords, filter by subjects, save your favorite papers, and b
 
 ## 🚀 Getting Started
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/abdussamadse/research-mate.git
-cd research-mate
-2. Install Dependencies
-bash
-Copy code
-npm install
-3. Start the App
-bash
-Copy code
-npm run dev
-4. Open in Browser
-Open http://localhost:5173 in your browser.
-
-📝 How to Use
-Search: Enter keywords like Deep Learning or Quantum Computing.
-
-Category: Choose a subject (e.g., AI, Robotics, Physics) or leave “All Fields” for a broader search.
-
-Favorites: Click the star on a paper card to save it. Access saved papers via the Favorites page.
-
-Pagination: Navigate through results using numbered pages or Next/Previous buttons.
-
-Dark Mode: Automatically enabled if your system is in dark mode.
-
-💡 Example Searches
-Deep Learning
-
-Quantum Computing
-
-Reinforcement Learning
-
-markdown
-Copy code
+### Live URL: https://github.com/abdussamadse/research-mate.git
