@@ -35,14 +35,14 @@ git clone https://github.com/abdussamadse/research-mate.git
 cd research-mate
 2. Install Dependencies
 bash
-
+Copy code
 npm install
 3. Start the App
 bash
-
+Copy code
 npm run dev
 4. Open in Browser
-Visit http://localhost:5173 to see the app in action.
+Open http://localhost:5173 in your browser.
 
 📝 How to Use
 Search: Enter keywords like Deep Learning or Quantum Computing.
@@ -62,3 +62,5 @@ Quantum Computing
 
 Reinforcement Learning
 
+markdown
+Copy code
