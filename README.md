@@ -31,22 +31,16 @@ You can search by keywords, filter by subjects, save your favorite papers, and b
 
 1. Clone the repository:
 
-```bash
 git clone https://github.com/abdussamadse/research-mate.git
 cd research-mate
-Install dependencies:
 
-bash
+Install dependencies:
 npm install
 
 Start the app:
-
-bash
 npm run dev
 
 Open in your browser:
-
-arduino
 http://localhost:5173
 
 📝 How to Use
